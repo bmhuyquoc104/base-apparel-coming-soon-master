@@ -1,0 +1,150 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: "Josefin Sans";
+    background-image:url(./images/bg-pattern-desktop.svg);
+    background-position: bottom;
+}
+
+main{
+    display: flex;
+    min-height:100vh;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin-top: 2em;
+    gap: 1em;
+}
+
+.container >*{
+    width: 100%;
+}
+
+.container > :nth-child(1){
+    order: 1;
+    margin-bottom: 0.5em;
+}
+
+svg{
+    width:fit-content;
+    height:auto;
+    transform:scale(0.7)
+}
+
+.container > :nth-child(2){
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2.2em 2em;
+    gap: 1em;
+    text-align:center;
+
+}
+
+.container > :nth-child(3){
+    order:2;
+}
+
+.container .card__info h1{
+    text-transform: uppercase;
+    letter-spacing:0.4em;
+    line-height: 1.2;
+    color:hsl(0, 6%, 24%);
+    font-size: clamp(2rem,3.5vh,3rem);
+}
+
+.container .card__info span{
+    color: hsl(0, 36%, 70%);
+    font-weight: 300;
+}
+
+.container .card__info p{
+    color: hsl(0, 36%, 70%);
+    font-weight: 700;
+    font-size: clamp(0.85rem,1.5vh,1.2rem);
+}
+
+.container .card__image{
+    width:100%;
+    background-image: url(./images/hero-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height:250px;
+}
+
+.container .card__email{
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+
+.container .card__email input{
+    padding:1em 1.5em;
+    width:100%;
+    border:1px solid hsl(0, 36%, 70%);
+    border-radius: 25px;
+    color:hsl(0, 6%, 24%);
+}
+
+.container .card__email input::placeholder{
+    color: hsl(0, 36%, 70%);
+    font-weight: 400;
+}
+
+
+.container .card__email::before{
+    visibility: hidden;
+    cursor: pointer;
+    left: calc(80% - 3em);
+    position:absolute;
+    padding: 0.6em 0;
+    content: url("./images/icon-error.svg");
+    transform:scale(0.75);
+}
+
+
+.container .card__email::after{
+    cursor: pointer;
+    position:absolute;
+    right: 0;
+    background:linear-gradient(135deg,hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    height:100%;
+    border-radius:50px;
+    box-shadow: 0px 5px 15px 0px hsl(0, 36%, 70%);
+    padding: 0.75em 0;
+    width: 20%;
+    content: url("./images/icon-arrow.svg");
+}
+.container .card__email.invalid input{
+    border: 2px solid hsl(0, 93%, 68%);
+}
+
+small{
+    align-self: flex-start;
+    margin-top: -0.5em;
+    margin-left: 2.2em;
+    color:hsl(0, 93%, 68%);
+    font-weight: 600;
+    font-size:clamp(0.6rem,1vh,0.8rem);
+    visibility: hidden;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
