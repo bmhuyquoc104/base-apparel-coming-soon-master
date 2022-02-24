@@ -13,8 +13,6 @@ body{
 main{
     display: flex;
     min-height:100vh;
-    justify-content:center;
-    align-items:center;
 }
 
 .container{
@@ -53,6 +51,7 @@ svg{
 }
 
 .container > :nth-child(3){
+    width:fit-content;
     order:2;
 }
 
@@ -60,8 +59,9 @@ svg{
     text-transform: uppercase;
     letter-spacing:0.4em;
     line-height: 1.2;
+    width: max(90%,14rem);
     color:hsl(0, 6%, 24%);
-    font-size: clamp(2rem,3.5vh,3rem);
+    font-size: clamp(2rem,7.5vh,3rem);
 }
 
 .container .card__info span{
@@ -71,8 +71,9 @@ svg{
 
 .container .card__info p{
     color: hsl(0, 36%, 70%);
+    width: max(80%,10rem);
     font-weight: 700;
-    font-size: clamp(0.85rem,1.5vh,1.2rem);
+    font-size: clamp(0.85rem,2.2vh,1.2rem);
 }
 
 .container .card__image{
@@ -85,7 +86,7 @@ svg{
 
 .container .card__email{
     display: flex;
-    width: 100%;
+    width: max(80%,15rem);
     position: relative;
 }
 
@@ -115,17 +116,17 @@ svg{
 }
 
 
-.container .card__email::after{
+.container .card__email button{
     cursor: pointer;
     position:absolute;
     right: 0;
     background:linear-gradient(135deg,hsl(0, 80%, 86%), hsl(0, 74%, 74%));
     height:100%;
     border-radius:50px;
+    border:none;
     box-shadow: 0px 5px 15px 0px hsl(0, 36%, 70%);
     padding: 0.75em 0;
     width: 20%;
-    content: url("./images/icon-arrow.svg");
 }
 .container .card__email.invalid input{
     border: 2px solid hsl(0, 93%, 68%);
@@ -139,6 +140,58 @@ small{
     font-weight: 600;
     font-size:clamp(0.6rem,1vh,0.8rem);
     visibility: hidden;
+}
+
+@media (min-width: 768px){
+    .container{
+        display: grid;
+        margin-top: 0;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(3,1fr);
+        grid-auto-columns: 1fr;
+    }
+
+    body{
+        background-position: unset;
+    }
+
+    .container :nth-child(3){
+        grid-column: 3/5;
+        grid-row: 1/3;
+    }
+
+    .container > :nth-child(2){
+        padding-left:7em;
+        padding-top: 0;
+        text-align:left;
+        gap: 2em;
+        align-items: start;
+        grid-column: 1/3;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .container :nth-child(1){
+        grid-column: 1/3;
+    }
+
+    .card__logo{
+        padding-left: 10em;
+        padding-top: 4em;
+        transform: scale(1.4);
+    }
+
+    .container .card__info p{
+        letter-spacing:1px;
+        line-height:2em;
+    }
+
+    .container .card__image{
+        width:100%;
+        background-image: url(./images/hero-desktop.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 
 .attribution {
